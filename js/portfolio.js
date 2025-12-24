@@ -1,4 +1,4 @@
-const sheetURL = "1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA";
+const sheetURL = "https://docs.google.com/spreadsheets/d/1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA/gviz/tq?tqx=out:csv&sheet=Sheet1";
 
 fetch(sheetURL)
   .then(res => res.text())
@@ -20,4 +20,5 @@ fetch(sheetURL)
         tbody.appendChild(tr);
       }
     });
-  });
+  })
+  .catch(err => console.error("Error fetching sheet:", err));
