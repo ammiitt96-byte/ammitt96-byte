@@ -1,4 +1,4 @@
-const sheetURL = "https://docs.google.com/spreadsheets/d/1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA/gviz/tq?tqx=out:csv&sheet=Sheet1";
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQbHrZS1_OVARmmc7070aQq2MJHgSXGhacfdNi7LEt8cLHECf0gfi3lgwIsIb0tONGtUB_50bNtOjKa/pub?output=csv";
 
 fetch(sheetURL)
   .then(res => res.text())
