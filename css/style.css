@@ -1,3 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background:
+    linear-gradient(135deg,
+      rgba(120,0,0,0.6),
+      rgba(0,0,0,0.85),
+      rgba(0,120,60,0.6)),
+    url("../assets/bg-stock.jpg") no-repeat center center/cover;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(0,0,0,0.7);
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+.header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.header nav a:hover,
+.header nav a.active {
+  color: #4caf50;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 100px 20px 60px;
+  background: rgba(0,0,0,0.55);
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #ddd;
+}
+
+/* Overview */
+.overview {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+/* Cards */
+.card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  width: 280px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+  overflow: hidden;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.card * {
+  position: relative;
+  z-index: 2;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(0,255,150,0.35);
+}
+
+/* Card backgrounds */
+.card.edu {
+  background-image: url("../assets/card-edu.jpg");
+}
+
+.card.strat {
+  background-image: url("../assets/card-strategy.jpg");
+}
+
+.card.port {
+  background-image: url("../assets/card-portfolio.jpg");
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #4caf50;
+}
+
+.card p {
+  font-size: 15px;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #2e7d32, #4caf50);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+}
+
 .overview {
   display: flex;
   justify-content: center;
@@ -58,4 +202,14 @@
   border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.7);
+  border-top: 1px solid #222;
+  color: #aaa;
 }
