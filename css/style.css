@@ -72,4 +72,89 @@ body {
 
 /* Cards */
 .card {
-  posi
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+
+  width: 280px;
+  height: 280px;              /* ✅ square */
+
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+  overflow: hidden;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  display: flex;             /* ✅ center content */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.card * {
+  position: relative;
+  z-index: 2;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(0,255,150,0.35);
+}
+
+/* Card backgrounds */
+.card.edu {
+  background-image: url("../assets/card-edu.jpg");
+}
+
+.card.strat {
+  background-image: url("../assets/card-strategy.jpg");
+}
+
+.card.port {
+  background-image: url("../assets/card-portfolio.jpg");
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #4caf50;
+}
+
+.card p {
+  font-size: 15px;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #2e7d32, #4caf50);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.7);
+  border-top: 1px solid #222;
+  color: #aaa;
+}
