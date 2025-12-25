@@ -1,215 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Golden Elephant</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header.header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 30px;
-      background-color: rgba(0, 0, 0, 0.5); /* Transparent black */
-      color: white;
-    }
-
-    .logo-img {
-      height: 50px;
-    }
-
-    .brand-name {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-left: 10px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover, nav a.active {
-      color: #f9ca24;
-    }
-
-    .hero {
-      height: 50vh;
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./assets/hero-about.jpg') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 700px;
-    }
-
-    .section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section:nth-child(even) .text {
-      order: 2;
-    }
-
-    .section img {
-      flex: 1;
-      max-width: 500px;
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .text {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .text h2 {
-      color: #0a3d62;
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-
-    .text p {
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    .cta {
-      text-align: center;
-      padding: 50px 20px;
-      background-color: #f9ca24;
-      color: #0a3d62;
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-
-    footer {
-      background-color: #0a3d62;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .section {
-        flex-direction: column;
-      }
-      .section:nth-child(even) .text {
-        order: 0;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div style="display:flex; align-items:center;">
-      <img src="./assets/golden-elephant-logo.jpg" alt="Logo" class="logo-img">
-      <span class="brand-name">Golden Elephant</span>
-    </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="education.html">Education</a>
-      <a href="strategies.html">Strategies</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <h1>About Golden Elephant</h1>
-    <p>Empowering traders with knowledge, discipline, and a systematic approach to options trading.</p>
-  </section>
-
-  <!-- WHO WE ARE -->
-  <section class="section">
-    <div class="text">
-      <h2>🐘 Who We Are</h2>
-      <p>Golden Elephant is a premium platform focused on systematic options trading education. 
-      We emphasize structured strategies, discipline, and risk management over shortcuts or gambling. 
-      Our goal is to transform retail traders into confident, responsible market participants.</p>
-    </div>
-    <img src="./assets/who-we-are.jpg" alt="Who We Are">
-  </section>
-
-  <!-- MISSION -->
-  <section class="section">
-    <img src="./assets/mission.jpg" alt="Mission">
-    <div class="text">
-      <h2>🎯 Our Mission</h2>
-      <p>To simplify options trading for retail traders by providing clear, actionable education, practical strategies, 
-      and a professional mindset that prioritizes capital protection and consistency. We focus on growth without taking unnecessary risks.</p>
-    </div>
-  </section>
-
-  <!-- VISION -->
-  <section class="section">
-    <div class="text">
-      <h2>👁 Our Vision</h2>
-      <p>We aim to build a trusted options trading brand where traders learn to trade responsibly, avoid emotional decisions, 
-      and grow steadily in the financial markets. Our vision is long-term success for our community, not quick wins.</p>
-    </div>
-    <img src="./assets/vision.jpg" alt="Vision">
-  </section>
-
-  <!-- PHILOSOPHY -->
-  <section class="section">
-    <img src="./assets/philosophy.jpg" alt="Philosophy">
-    <div class="text">
-      <h2>🛡 Risk First Philosophy</h2>
-      <p>Risk management is our top priority. We emphasize capital allocation, defined risk strategies, and strict discipline. 
-      Our approach ensures traders survive market volatility and steadily grow their portfolios over time.</p>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
-    Learn, trade, and grow with Golden Elephant — your partner in disciplined options trading.
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Golden Elephant. All Rights Reserved.</p>
-  </footer>
+<header class="site-header">
+  <img src="assets/golden-elephant-logo.jpg" alt="Golden Elephant Logo" class="logo">
+  <h1>ProTheta capital</h1>
+</header>
 
 </body>
 </html>
 
 
+<header>
+  <h1>Patil Capital</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="education.html">Education</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- About Us Section -->
+<section class="about-us-section">
+  <div class="about-container">
+
+    <h1 class="about-title">Who We Are</h1>
+
+    <p class="about-intro">
+      Golden Elephant is a forward-thinking financial brand focused on long-term
+      wealth creation through smart strategies and informed decision-making.
+    </p>
+
+    <div class="about-content">
+      <div class="about-box">
+        <h2>Our Vision</h2>
+        <p>
+          To empower individuals and businesses with financial knowledge and
+          strategies that lead to sustainable and long-term growth.
+        </p>
+      </div>
+
+      <div class="about-box">
+        <h2>Our Mission</h2>
+        <p>
+          To deliver reliable education, proven strategies, and practical insights
+          that help people make confident and informed financial decisions.
+        </p>
+      </div>
+
+      <div class="about-box">
+        <h2>Why Golden Elephant?</h2>
+        <p>
+          The elephant represents strength, wisdom, and patience.
+          We focus on long-term value rather than short-term trends.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
