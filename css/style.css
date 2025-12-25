@@ -157,6 +157,15 @@ body {
   background: linear-gradient(135deg, #4caf50, #2e7d32);
 }
 
+
+.logo-img {
+  width: 60px;
+  height: auto;
+  margin-right: 12px;
+  display: block;
+}
+
+
 /* ================= FOOTER ================= */
 
 footer {
@@ -166,3 +175,4 @@ footer {
   border-top: 1px solid #222;
   color: #aaa;
 }
+
