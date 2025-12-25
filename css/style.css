@@ -32,10 +32,17 @@ body {
 .brand-name {
   font-size: 22px;
   font-weight: bold;
-  background: linear-gradient(135deg, #f9d423, #ffb300, #ffd700);
+  background: linear-gradient(
+    135deg,
+    #b8860b,   /* dark gold */
+    #ffd700,   /* pure gold */
+    #ffae00,   /* warm gold */
+    #b8860b
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-right: auto;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.35);
 }
 
 /* Navigation */
@@ -170,6 +177,7 @@ footer {
   border-top: 1px solid #222;
   color: #aaa;
 }
+
 
 
 
