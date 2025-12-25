@@ -1,4 +1,4 @@
-/* Reset */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,42 +6,57 @@
   font-family: Arial, sans-serif;
 }
 
-/* Body */
+/* ================= BODY ================= */
 body {
   background:
     linear-gradient(135deg,
       rgba(120,0,0,0.6),
       rgba(0,0,0,0.85),
       rgba(0,120,60,0.6)),
-    url("../assets/bg-stock.jpg") no-repeat center center/cover;
+    url("../assets/bg-stock.jpg") no-repeat center center / cover;
   color: #fff;
   min-height: 100vh;
 }
 
 /* ================= HEADER ================= */
-
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
   display: flex;
   align-items: center;
   padding: 15px 40px;
-  background: rgba(0,0,0,0.75);
+
+  background: rgba(0, 0, 0, 0.9);
   border-bottom: 1px solid #222;
 }
 
-/* GoldenElephant name */
+/* Logo */
+.logo-img {
+  width: 60px;
+  height: auto;
+  margin-right: 12px;
+}
+
+/* Brand Name */
 .brand-name {
   font-size: 22px;
   font-weight: bold;
+  margin-right: auto;
+
   background: linear-gradient(
     135deg,
-    #b8860b,   /* dark gold */
-    #ffd700,   /* pure gold */
-    #ffae00,   /* warm gold */
+    #b8860b,
+    #ffd700,
+    #ffae00,
     #b8860b
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-right: auto;
+
   text-shadow: 0 0 6px rgba(255, 215, 0, 0.35);
 }
 
@@ -59,11 +74,11 @@ body {
 }
 
 /* ================= HERO ================= */
-
 .hero {
+  margin-top: 90px;
   text-align: center;
   padding: 100px 20px 70px;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0, 0, 0, 0.55);
 }
 
 .hero h1 {
@@ -76,8 +91,14 @@ body {
   color: #ddd;
 }
 
-/* ================= OVERVIEW ================= */
+/* ================= SECTION (OTHER PAGES) ================= */
+.section {
+  margin-top: 90px;
+  padding: 60px 20px;
+  text-align: center;
+}
 
+/* ================= OVERVIEW ================= */
 .overview {
   display: flex;
   justify-content: center;
@@ -87,7 +108,6 @@ body {
 }
 
 /* ================= CARDS ================= */
-
 .card {
   position: relative;
   background-size: cover;
@@ -159,43 +179,19 @@ body {
   background: linear-gradient(135deg, #4caf50, #2e7d32);
 }
 
-
-.logo-img {
-  width: 60px;
-  height: auto;
-  margin-right: 12px;
-  display: block;
-}
-
-
-/* ================= FOOTER ================= */
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: rgba(0,0,0,0.75);
-  border-top: 1px solid #222;
-  color: #aaa;
-}
-
-/* ===============================
-   ABOUT US SECTION
-================================ */
-
+/* ================= ABOUT US ================= */
 .about-us-section {
   background-color: #000;
-  color: #ffffff;
   padding: 80px 10%;
 }
 
 .about-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .about-title {
   font-size: 42px;
-  font-weight: 600;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -203,10 +199,9 @@ footer {
 .about-intro {
   text-align: center;
   font-size: 18px;
-  color: #cccccc;
+  color: #ccc;
   max-width: 800px;
   margin: 0 auto 60px;
-  line-height: 1.6;
 }
 
 .about-content {
@@ -216,49 +211,49 @@ footer {
 }
 
 .about-box {
-  background-color: #111;
+  background: #111;
   padding: 30px;
   border-radius: 12px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .about-box h2 {
-  font-size: 22px;
-  margin-bottom: 15px;
   color: #f5c542;
+  margin-bottom: 15px;
 }
 
 .about-box p {
-  font-size: 16px;
-  color: #bbbbbb;
-  line-height: 1.7;
+  color: #bbb;
+  line-height: 1.6;
 }
 
 .about-box:hover {
-  background-color: #151515;
+  background: #151515;
   transform: translateY(-6px);
 }
 
-/* ===============================
-   STICKY HEADER
-================================ */
-
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(6px);
+/* ================= FOOTER ================= */
+footer {
+  background: rgba(0,0,0,0.9);
+  border-top: 1px solid #222;
+  text-align: center;
+  padding: 40px 20px 20px;
+  color: #bbb;
 }
 
-/* Page content header खाली जाऊ नये म्हणून */
-body {
-  padding-top: 80px;
+footer h3 {
+  color: #fff;
+  margin-bottom: 15px;
 }
 
+footer p {
+  max-width: 900px;
+  margin: 0 auto 15px;
+  line-height: 1.6;
+  font-size: 14px;
+}
 
-
-
-
-
-
+footer p:last-child {
+  margin-top: 20px;
+  color: #888;
+}
