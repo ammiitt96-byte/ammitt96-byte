@@ -239,6 +239,23 @@ footer {
   transform: translateY(-6px);
 }
 
+/* ===============================
+   STICKY HEADER
+================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(6px);
+}
+
+/* Page content header खाली जाऊ नये म्हणून */
+body {
+  padding-top: 80px;
+}
+
 
 
 
