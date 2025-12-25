@@ -33,7 +33,9 @@ body {
 .brand-name {
   font-size: 22px;
   font-weight: bold;
-  color: #4caf50;
+  background: linear-gradient(135deg, #f9d423, #ffb300, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-right: auto;
 }
 
@@ -169,5 +171,6 @@ footer {
   border-top: 1px solid #222;
   color: #aaa;
 }
+
 
 
