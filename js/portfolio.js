@@ -5,17 +5,21 @@ fetch(SHEET_URL)
 .then(res => res.text())
 .then(text => {
   const json = JSON.parse(text.substring(47).slice(0, -2));
-  const rows = json.table.rows.map(r => ({
-    date: r.c[0]?.v,
-    month: r.c[1]?.v,
-    capital: r.c[2]?.v,
-    pl: r.c[3]?.v,
-    used: r.c[4]?.v,
-    image: r.c[7]?.v,
-    roi: r.c[8]?.v
+ const rows = json.table.rows
+  .filter(r => r.c && r.c[0]) // Date missing rows ignore
+  .map(r => ({
+    date: r.c[0]?.v || "",
+    month: r.c[1]?.v || "",
+    capital: r.c[2]?.v || 0,
+    pl: r.c[3]?.v || 0,
+    used: r.c[4]?.v || 0,
+    strategy: r.c[5]?.v || "",
+    image: r.c[7]?.v || "",
+    roi: r.c[8]?.v || ""
   }));
-  initMonths(rows);
-});
+
+initMonths(rows);
+
 
 function initMonths(data) {
   const months = [...new Set(data.map(d => d.month))];
@@ -83,4 +87,5 @@ function analysis(pl, roi) {
     ? `Profitable month with ${roi}% ROI using disciplined strategies.`
     : `Loss month. Risk optimization required.`;
 }
+
 
