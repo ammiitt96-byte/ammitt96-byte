@@ -3,35 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <title>Portfolio | Golden Elephant</title>
+
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif;}
-    body { background: linear-gradient(135deg, rgba(120,0,0,0.6), rgba(0,0,0,0.85), rgba(0,120,60,0.6)), url("../assets/bg-stock.jpg") no-repeat center center / cover; color:#fff; min-height:100vh; }
-    .header { position:fixed; top:0; left:0; width:100%; z-index:9999; display:flex; align-items:center; padding:15px 40px; background:rgba(0,0,0,0.9); border-bottom:1px solid #222; }
-    .logo-img { width:60px; height:auto; margin-right:12px; }
-    .brand-name { font-size:22px; font-weight:bold; margin-right:auto; background:linear-gradient(135deg,#b8860b,#ffd700,#ffae00,#b8860b); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 0 6px rgba(255,215,0,0.35);}
-    .header nav a { margin-left:22px; text-decoration:none; color:#ccc; font-weight:500;}
-    .header nav a:hover, .header nav a.active { color:#4caf50; }
-    .dashboard { padding-top:120px; padding:0 30px 30px; }
-    .top-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
-    .top-bar select { background:#161b22; color:#fff; border:none; padding:8px 12px; border-radius:6px; position:relative; z-index:1; }
-    .cards { display:flex; gap:25px; margin-bottom:30px; flex-wrap:wrap; justify-content:center; }
-    .card { background:rgba(0,0,0,0.75); border:1px solid #b8860b; width:240px; padding:25px 15px; border-radius:12px; text-align:center; box-shadow:0 0 25px rgba(0,0,0,0.7); transition:transform 0.3s ease, box-shadow 0.3s ease; }
-    .card h3 { font-size:22px; margin-bottom:10px; color:#4caf50; }
-    .card p { font-size:15px; color:#ddd; margin-bottom:20px; }
-    .grid { background:rgba(0,0,0,0.75); padding:20px; border-radius:10px; margin-top:25px; max-width:900px; margin-left:auto; margin-right:auto; }
-    table { width:100%; border-collapse:collapse; margin-top:10px; }
-    th, td { padding:10px; text-align:center; border-bottom:1px solid #222; }
+    /* ================= RESET ================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background:
+        linear-gradient(135deg,
+          rgba(120,0,0,0.6),
+          rgba(0,0,0,0.85),
+          rgba(0,120,60,0.6)),
+        url("../assets/bg-stock.jpg") no-repeat center center / cover;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* ================= HEADER ================= */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      padding: 15px 40px;
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid #222;
+    }
+
+    .logo-img {
+      width: 60px;
+      height: auto;
+      margin-right: 12px;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: bold;
+      margin-right: auto;
+      background: linear-gradient(
+        135deg,
+        #b8860b,
+        #ffd700,
+        #ffae00,
+        #b8860b
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 6px rgba(255, 215, 0, 0.35);
+    }
+
+    .header nav a {
+      margin-left: 22px;
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+    }
+
+    .header nav a:hover,
+    .header nav a.active {
+      color: #4caf50;
+    }
+
+    /* ================= DASHBOARD ================= */
+    .dashboard {
+      padding-top: 120px; /* header height + spacing */
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-bottom: 30px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .top-bar select {
+      background:#161b22;
+      color:#fff;
+      border:none;
+      padding:8px 12px;
+      border-radius:6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cards {
+      display: flex;
+      gap: 25px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.75);
+      border: 1px solid #b8860b;
+      width: 240px;
+      padding: 25px 15px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #4caf50;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      background: rgba(0,0,0,0.75);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 25px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+
     .profit { color:#00ff99; }
     .loss { color:#ff4d4d; }
   </style>
 </head>
+
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="header">
   <img src="./assets/golden-elephant-logo.jpg" alt="" class="logo-img">
   <span class="brand-name">Golden Elephant</span>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -45,9 +178,14 @@
 <section class="dashboard">
   <div class="top-bar">
     <h2>Portfolio Dashboard</h2>
-    <select id="yearSelect"></select>
+    <select id="yearSelect">
+      <option>2026</option>
+      <option>2025</option>
+       <option>2024</option>
+    </select>
   </div>
 
+  <!-- SUMMARY CARDS -->
   <div class="cards">
     <div class="card">
       <h3>Total Profit</h3>
@@ -67,11 +205,13 @@
     </div>
   </div>
 
+  <!-- EQUITY CHART -->
   <div class="grid">
     <h3>Equity Curve</h3>
     <canvas id="equityChart"></canvas>
   </div>
 
+  <!-- MONTHLY TABLE -->
   <div class="grid">
     <h3>Monthly Performance</h3>
     <table>
@@ -85,114 +225,10 @@
       <tbody id="monthTable"></tbody>
     </table>
   </div>
+
 </section>
 
-<script>
-const SHEET_URL =
-"https://docs.google.com/spreadsheets/d/1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA/gviz/tq?sheet=Sheet1&tqx=out:json&nocache=" + Date.now();
-
-let chart;
-let allData = [];
-
-fetch(SHEET_URL)
-  .then(res => res.text())
-  .then(text => {
-    const json = JSON.parse(text.substring(47).slice(0, -2));
-    allData = json.table.rows
-      .filter(r => r.c && r.c[0])
-      .map(r => {
-        const d = parseDate(r.c[0].v);
-        return {
-          year: d.getFullYear(),
-          month: d.toLocaleString("en-IN",{month:"short"}),
-          date: d,
-          pl: Number(r.c[3]?.v) || 0,
-          roi: Number(r.c[8]?.v) || 0
-        };
-      });
-    initYears();
-  });
-
-function parseDate(d) {
-  const p = d.match(/\d+/g);
-  return new Date(p[0], p[1]-1, p[2]);
-}
-
-function initYears() {
-  const years = [...new Set(allData.map(d => d.year))].sort((a,b)=>b-a);
-  const select = document.getElementById("yearSelect");
-  select.innerHTML = ""; // remove duplicates if any
-
-  years.forEach(y => {
-    const o = document.createElement("option");
-    o.value = y;
-    o.textContent = y;
-    select.appendChild(o);
-  });
-
-  select.onchange = () => renderYear(+select.value);
-  renderYear(years[0]); // render latest year by default
-}
-
-function renderYear(year) {
-  const data = allData.filter(d => d.year === year);
-  const months = {};
-  data.forEach(d => {
-    if (!months[d.month]) months[d.month] = {pl:0, roi:[]};
-    months[d.month].pl += d.pl;
-    months[d.month].roi.push(d.roi);
-  });
-
-  const rows = Object.entries(months).map(([m,v]) => ({
-    month:m,
-    pl:v.pl,
-    roi:(v.roi.reduce((a,b)=>a+b,0)/v.roi.length).toFixed(2)
-  }));
-
-  updateSummary(rows);
-  drawTable(rows);
-  drawChart(rows);
-}
-
-function updateSummary(rows) {
-  const total = rows.reduce((a,b)=>a+b.pl,0);
-  const avgR = (rows.reduce((a,b)=>a+Number(b.roi),0)/rows.length || 0).toFixed(2);
-
-  document.getElementById("totalPL").textContent = "₹"+total;
-  document.getElementById("avgROI").textContent = avgR+"%";
-
-  const sorted = [...rows].sort((a,b)=>b.pl-a.pl);
-  document.getElementById("bestMonth").textContent = sorted[0]?.month || "-";
-  document.getElementById("worstMonth").textContent = sorted.at(-1)?.month || "-";
-}
-
-function drawTable(rows) {
-  const tb = document.getElementById("monthTable");
-  tb.innerHTML = "";
-  rows.forEach(r => {
-    tb.innerHTML += `<tr>
-      <td>${r.month}</td>
-      <td class="${r.pl>=0?"profit":"loss"}">₹${r.pl}</td>
-      <td>${r.roi}%</td>
-    </tr>`;
-  });
-}
-
-function drawChart(rows) {
-  if (chart) chart.destroy();
-  let cum = 0;
-  const equity = rows.map(r => cum += r.pl);
-
-  chart = new Chart(document.getElementById("equityChart"), {
-    type:"line",
-    data:{
-      labels:rows.map(r=>r.month),
-      datasets:[{ data:equity, borderColor:"#3ea6ff", tension:0.4 }]
-    },
-    options:{plugins:{legend:{display:false}}}
-  });
-}
-</script>
-
+<script src="js/portfolio.js"></script>
 </body>
 </html>
+
