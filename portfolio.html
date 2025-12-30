@@ -12,8 +12,42 @@
       background:#0b0f14;
       color:#fff;
       font-family: Arial, sans-serif;
+      margin:0;
     }
 
+    /* ===== HEADER ===== */
+    header {
+      position: relative; /* keep header unchanged */
+      z-index: 1000;
+      background: #0b0f14; /* optional for header bg */
+      overflow: visible;   /* allow dropdowns to appear */
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    header .logo-img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    header .brand-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-right: auto;
+    }
+
+    header nav a {
+      color:#fff;
+      margin-left:15px;
+      text-decoration:none;
+    }
+
+    header nav a.active {
+      text-decoration: underline;
+    }
+
+    /* ===== DASHBOARD ===== */
     .dashboard {
       padding: 30px;
     }
@@ -31,6 +65,8 @@
       border:none;
       padding:8px 12px;
       border-radius:6px;
+      position: relative;
+      z-index: 1010; /* higher than header */
     }
 
     .cards {
@@ -105,7 +141,11 @@
 
   <div class="top-bar">
     <h2>Portfolio Dashboard</h2>
-    <select id="yearSelect"></select>
+    <select id="yearSelect">
+      <option>2025</option>
+      <option>2024</option>
+      <option>2023</option>
+    </select>
   </div>
 
   <!-- SUMMARY -->
