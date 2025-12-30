@@ -4,215 +4,66 @@
   <meta charset="UTF-8">
   <title>Portfolio | Golden Elephant</title>
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/portfolio.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <style>
-    /* ================= RESET ================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background:
-        linear-gradient(135deg,
-          rgba(120,0,0,0.6),
-          rgba(0,0,0,0.85),
-          rgba(0,120,60,0.6)),
-        url("../assets/bg-stock.jpg") no-repeat center center / cover;
-      color: #fff;
-      min-height: 100vh;
-    }
-
-    /* ================= HEADER ================= */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      padding: 15px 40px;
-      background: rgba(0, 0, 0, 0.9);
-      border-bottom: 1px solid #222;
-    }
-
-    .logo-img {
-      width: 60px;
-      height: auto;
-      margin-right: 12px;
-    }
-
-    .brand-name {
-      font-size: 22px;
-      font-weight: bold;
-      margin-right: auto;
-      background: linear-gradient(
-        135deg,
-        #b8860b,
-        #ffd700,
-        #ffae00,
-        #b8860b
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 6px rgba(255, 215, 0, 0.35);
-    }
-
-    .header nav a {
-      margin-left: 22px;
-      text-decoration: none;
-      color: #ccc;
-      font-weight: 500;
-    }
-
-    .header nav a:hover,
-    .header nav a.active {
-      color: #4caf50;
-    }
-
-    /* ================= DASHBOARD ================= */
-    .dashboard {
-      padding-top: 120px; /* header height + spacing */
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-bottom: 30px;
-    }
-
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .top-bar select {
-      background:#161b22;
-      color:#fff;
-      border:none;
-      padding:8px 12px;
-      border-radius:6px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cards {
-      display: flex;
-      gap: 25px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .card {
-      background: rgba(0,0,0,0.75);
-      border: 1px solid #b8860b;
-      width: 240px;
-      padding: 25px 15px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 0 25px rgba(0,0,0,0.7);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      color: #4caf50;
-    }
-
-    .card p {
-      font-size: 15px;
-      color: #ddd;
-      margin-bottom: 20px;
-    }
-
-    .grid {
-      background: rgba(0,0,0,0.75);
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 25px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-
-    th, td {
-      padding: 10px;
-      text-align: center;
-      border-bottom: 1px solid #222;
-    }
-
-    .profit { color:#00ff99; }
-    .loss { color:#ff4d4d; }
-  </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
 <header class="header">
-  <img src="./assets/golden-elephant-logo.jpg" alt="" class="logo-img">
-  <span class="brand-name">Golden Elephant</span>
-
+  <div class="logo">Golden Elephant</div>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="education.html">Education</a>
-    <a href="strategies.html">Strategies</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
-    <a href="contact.html">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Education</a>
+    <a href="#">Strategies</a>
+    <a class="active">Portfolio</a>
   </nav>
 </header>
 
 <section class="dashboard">
+
   <div class="top-bar">
-    <h2>Portfolio Dashboard</h2>
-    <select id="yearSelect">
-      <option>2026</option>
-      <option>2025</option>
-       <option>2024</option>
-    </select>
+    <h1>Portfolio Dashboard</h1>
+    <select id="yearSelect"></select>
   </div>
 
-  <!-- SUMMARY CARDS -->
-  <div class="cards">
-    <div class="card">
-      <h3>Total Profit</h3>
-      <p id="totalPL">₹0</p>
+  <!-- TOP SUMMARY -->
+  <div class="summary">
+    <div class="summary-card">
+      <h3>This Month</h3>
+      <p id="monthPL">₹0</p>
+      <canvas id="monthPie"></canvas>
     </div>
-    <div class="card">
-      <h3>Avg ROI</h3>
-      <p id="avgROI">0%</p>
+
+    <div class="summary-card">
+      <h3>This Year</h3>
+      <p id="yearPL">₹0</p>
+      <canvas id="yearPie"></canvas>
     </div>
-    <div class="card">
-      <h3>Best Month</h3>
-      <p id="bestMonth">-</p>
-    </div>
-    <div class="card">
-      <h3>Worst Month</h3>
-      <p id="worstMonth">-</p>
+
+    <div class="summary-card">
+      <h3>All Time</h3>
+      <p id="allPL">₹0</p>
+      <canvas id="allPie"></canvas>
     </div>
   </div>
 
-  <!-- EQUITY CHART -->
-  <div class="grid">
-    <h3>Equity Curve</h3>
-    <canvas id="equityChart"></canvas>
+  <!-- CHARTS -->
+  <div class="charts">
+    <div class="panel">
+      <h3>Account Balance</h3>
+      <canvas id="equityChart"></canvas>
+    </div>
+
+    <div class="panel">
+      <h3>Reward / Risk</h3>
+      <canvas id="rrChart"></canvas>
+    </div>
   </div>
 
   <!-- MONTHLY TABLE -->
-  <div class="grid">
+  <div class="panel">
     <h3>Monthly Performance</h3>
     <table>
       <thead>
@@ -231,4 +82,3 @@
 <script src="js/portfolio.js"></script>
 </body>
 </html>
-
