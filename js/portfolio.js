@@ -40,14 +40,18 @@ function drawDashboard(data) {
   const totalPL = data.reduce((a,b)=>a+b.pl,0);
   const capital = data[0].capital;
 
-  document.getElementById("capitalCard").innerHTML =
-    `Capital<br><b>₹${capital}</b>`;
-  document.getElementById("profitCard").innerHTML =
-    `Net P/L<br><b>₹${totalPL}</b>`;
-  document.getElementById("withdrawCard").innerHTML =
-    `Withdrawals<br><b>₹50,000</b>`;
-  document.getElementById("balanceCard").innerHTML =
-    `End Balance<br><b>₹${capital + totalPL}</b>`;
+ document.getElementById("capitalCard").innerHTML =
+  "Capital<br><b>₹" + capital + "</b>";
+
+document.getElementById("profitCard").innerHTML =
+  "Net P/L<br><b>₹" + totalPL + "</b>";
+
+document.getElementById("withdrawCard").innerHTML =
+  "Withdrawals<br><b>₹50,000</b>";
+
+document.getElementById("balanceCard").innerHTML =
+  "End Balance<br><b>₹" + (capital + totalPL) + "</b>";
+
 
   drawEquity(data);
 }
@@ -76,3 +80,4 @@ function drawEquity(data) {
     }
   );
 }
+
