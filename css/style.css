@@ -296,3 +296,15 @@ footer {
 .trade-images img:hover {
   transform: scale(1.05);
 }
+
+.top-bar select {
+  background:#161b22;
+  color:#fff;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  position: relative; /* relative pahije */
+  z-index: 10000; /* header cha var yel ase */
+}
+
+
