@@ -97,3 +97,17 @@ th {
 .loss {
   color: #ff4d4d;
 }
+
+/* ================= CHART SIZE FIX ================= */
+
+.chart-wrapper {
+  position: relative;
+  height: 320px;   /* <-- main control */
+  width: 100%;
+}
+
+.chart-wrapper canvas {
+  height: 100% !important;
+  width: 100% !important;
+}
+
