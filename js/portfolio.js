@@ -1,6 +1,7 @@
 const SHEET_URL =
 "https://docs.google.com/spreadsheets/d/1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA/gviz/tq?tqx=out:json";
 
+/* -------- FETCH DATA ---------- */
 fetch(SHEET_URL)
   .then(res => res.text())
   .then(text => {
@@ -21,47 +22,29 @@ fetch(SHEET_URL)
 
     console.log("FINAL DATA:", rows);
 
-    initMonths(rows);
     drawDashboard(rows);
   })
   .catch(err => console.error("FETCH ERROR:", err));
 
 /* -------- HELPERS ---------- */
-
 function formatDate(d) {
-  // Google Date(YYYY,MM,DD)
   if (typeof d === "string" && d.startsWith("Date")) {
-    const parts = d.match(/\d+/g);
-    const date = new Date(parts[0], parts[1], parts[2]);
-    return date.toLocaleDateString("en-IN");
+    const p = d.match(/\d+/g);
+    return new Date(p[0], p[1], p[2]).toLocaleDateString("en-IN");
   }
   return d;
 }
 
 /* -------- DASHBOARD ---------- */
-
 function drawDashboard(data) {
   const totalPL = data.reduce((a,b)=>a+b.pl,0);
   const capital = data[0].capital;
 
-  capitalCard.innerHTML = `Capital<br><b>₹${capital}</b>`;
-  profitCard.innerHTML = `Net P/L<br><b>₹${totalPL}</b>`;
-  withdrawCard.innerHTML = `Withdrawals<br><b>₹50,000</b>`;
-  balanceCard.innerHTML = `End Balance<br><b>₹${capital + totalPL}</b>`;
-
-  drawEquity(data);
-  drawPLBars(data);
-  drawWinRate(data);
-}
-
-/* -------- CHARTS ---------- */
-
-function drawEquity(data) {
-  let cum = 0;
-  const equity = data.map(d => cum += d.pl);
-
-  new Chart(equityChart, {
-    type: "line",
-    data: {
-      labels: data.map(d=>d.date),
-      datasets: [{
+  document.getElementById("capitalCard").innerHTML =
+    `Capital<br><b>₹${capital}</b>`;
+  document.getElementById("profitCard").innerHTML =
+    `Net P/L<br><b>₹${totalPL}</b>`;
+  document.getElementById("withdrawCard").innerHTML =
+    `Withdrawals<br><b>₹50,000</b>`;
+  document.getElementById("balanceCard").innerHTML =
+    `End Balance<br><b>₹${capital + to
