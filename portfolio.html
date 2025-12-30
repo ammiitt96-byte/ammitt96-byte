@@ -1,11 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Portfolio | Golden Elephant</title>
+
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    /* only dashboard specific styling */
+    .dashboard {
+      padding: 30px;
+      background: #0e1117;
+      color: #fff;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #161b22;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .box {
+      background: #161b22;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
+
 <body>
-  
+
+<!-- ===== HEADER (UNCHANGED) ===== -->
 <header class="header">
   <img src="./assets/golden-elephant-logo.jpg" alt="" class="logo-img">
   <span class="brand-name">Golden Elephant</span>
@@ -19,50 +56,31 @@
     <a href="contact.html">Contact</a>
   </nav>
 </header>
+<!-- ===== HEADER END ===== -->
 
-<!-- 🔽 NEW PORTFOLIO SECTION START -->
-<section class="section">
+<!-- ===== DASHBOARD ===== -->
+<section class="dashboard">
 
   <h2>Live Portfolio</h2>
 
-  <!-- Month Selector -->
-  <div style="margin-bottom:20px;">
-    <label>Select Month:</label>
-    <select id="monthSelect"></select>
-  </div>
-
-  <!-- Summary Cards -->
-  <div class="cards">
+  <!-- SUMMARY CARDS -->
+  <div class="summary">
     <div class="card" id="capitalCard">Capital</div>
-    <div class="card" id="plCard">P/L</div>
-    <div class="card" id="roiCard">ROI</div>
+    <div class="card" id="profitCard">Profit</div>
+    <div class="card" id="withdrawCard">Withdrawals</div>
+    <div class="card" id="balanceCard">Balance</div>
   </div>
 
-  <!-- Chart -->
-  <div style="margin-top:30px;">
-    <canvas id="plChart"></canvas>
+  <!-- CHART -->
+  <div class="box">
+    <h3>Equity Curve</h3>
+    <canvas id="equityChart"></canvas>
   </div>
-
-  <!-- Analysis -->
-  <h3 style="margin-top:30px;">Monthly Analysis</h3>
-  <div id="analysisBox" class="analysis-box"></div>
-
-  <!-- Trade Images -->
-  <h3 style="margin-top:30px;">Trade Proofs</h3>
-  <div id="tradeImages" class="trade-images"></div>
 
 </section>
-<!-- 🔼 NEW PORTFOLIO SECTION END -->
 
-<footer>
-  <p>© 2025 Patil Capital. All Rights Reserved.</p>
-</footer>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- JS -->
 <script src="js/portfolio.js"></script>
 
 </body>
 </html>
-
-
