@@ -8,12 +8,7 @@
 
 /* ================= BODY ================= */
 body {
-  background:
-    linear-gradient(135deg,
-      rgba(120,0,0,0.4),
-      rgba(0,0,0,0.9),
-      rgba(0,120,60,0.4)),
-    url("../assets/bg-stock.jpg") no-repeat center / cover;
+  background: radial-gradient(circle at top left, #0b1c2d, #02040a 70%);
   color: #fff;
   min-height: 100vh;
 }
@@ -24,41 +19,43 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 99999;
+  height: 80px;
+  z-index: 9999;
   display: flex;
   align-items: center;
-  padding: 15px 40px;
-  background: rgba(0, 0, 0, 0.95);
-  border-bottom: 1px solid #222;
+  padding: 0 40px;
+  background: #02040a;
+  border-bottom: 1px solid #111;
 }
 
+/* LOGO */
 .logo-img {
-  width: 55px;
+  width: 48px;
   height: auto;
   margin-right: 12px;
 }
 
+/* BRAND NAME */
 .brand-name {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   margin-right: auto;
-  background: linear-gradient(
-    135deg,
-    #b8860b,
-    #ffd700,
-    #ffae00,
-    #b8860b
-  );
+  background: linear-gradient(135deg, #b8860b, #ffd700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 6px rgba(255, 215, 0, 0.35);
+}
+
+/* NAV */
+.header nav {
+  display: flex;
+  gap: 22px;
 }
 
 .header nav a {
-  margin-left: 22px;
+  color: #aaa;
   text-decoration: none;
-  color: #ccc;
   font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .header nav a:hover,
@@ -66,7 +63,7 @@ body {
   color: #4caf50;
 }
 
-/* ================= GLOBAL UTIL ================= */
+/* ================= GLOBAL ================= */
 .container {
   max-width: 1200px;
   margin: auto;
