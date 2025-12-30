@@ -5,38 +5,81 @@
   <title>Portfolio | Golden Elephant</title>
 
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
-    /* only dashboard specific styling */
-    .dashboard {
-      padding: 30px;
-      background: #0e1117;
-      color: #fff;
+    body {
+      background:#0b0f14;
+      color:#fff;
+      font-family: Arial, sans-serif;
     }
 
-    .summary {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-bottom: 30px;
+    .dashboard {
+      padding: 30px;
+    }
+
+    .top-bar {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+    }
+
+    select {
+      background:#161b22;
+      color:#fff;
+      border:none;
+      padding:8px 12px;
+      border-radius:6px;
+    }
+
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+      margin-bottom:25px;
     }
 
     .card {
-      background: #161b22;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 18px;
+      background:#161b22;
+      padding:20px;
+      border-radius:10px;
+      text-align:center;
     }
 
-    .box {
-      background: #161b22;
-      padding: 20px;
-      border-radius: 10px;
+    .card h3 {
+      margin:0;
+      font-size:14px;
+      opacity:0.7;
     }
+
+    .card p {
+      margin-top:10px;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    .grid {
+      background:#161b22;
+      padding:20px;
+      border-radius:10px;
+      margin-top:25px;
+    }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+    }
+
+    th, td {
+      padding:10px;
+      text-align:center;
+      border-bottom:1px solid #222;
+    }
+
+    .profit { color:#00ff99; }
+    .loss { color:#ff4d4d; }
   </style>
 </head>
 
@@ -58,29 +101,56 @@
 </header>
 <!-- ===== HEADER END ===== -->
 
-<!-- ===== DASHBOARD ===== -->
 <section class="dashboard">
 
-  <h2>Live Portfolio</h2>
-
-  <!-- SUMMARY CARDS -->
-  <div class="summary">
-    <div class="card" id="capitalCard">Capital</div>
-    <div class="card" id="profitCard">Profit</div>
-    <div class="card" id="withdrawCard">Withdrawals</div>
-    <div class="card" id="balanceCard">Balance</div>
+  <div class="top-bar">
+    <h2>Portfolio Dashboard</h2>
+    <select id="yearSelect"></select>
   </div>
 
-  <!-- CHART -->
-  <div class="box">
+  <!-- SUMMARY -->
+  <div class="cards">
+    <div class="card">
+      <h3>Total Profit</h3>
+      <p id="totalPL">₹0</p>
+    </div>
+    <div class="card">
+      <h3>Avg ROI</h3>
+      <p id="avgROI">0%</p>
+    </div>
+    <div class="card">
+      <h3>Best Month</h3>
+      <p id="bestMonth">-</p>
+    </div>
+    <div class="card">
+      <h3>Worst Month</h3>
+      <p id="worstMonth">-</p>
+    </div>
+  </div>
+
+  <!-- EQUITY -->
+  <div class="grid">
     <h3>Equity Curve</h3>
     <canvas id="equityChart"></canvas>
   </div>
 
+  <!-- MONTHLY TABLE -->
+  <div class="grid">
+    <h3>Monthly Performance</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>P/L</th>
+          <th>ROI %</th>
+        </tr>
+      </thead>
+      <tbody id="monthTable"></tbody>
+    </table>
+  </div>
+
 </section>
 
-<!-- JS -->
 <script src="js/portfolio.js"></script>
-
 </body>
 </html>
