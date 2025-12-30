@@ -12,6 +12,7 @@
 
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="header">
   <img src="./assets/golden-elephant-logo.jpg" alt="" class="logo-img">
   <span class="brand-name">ThunderGold capital</span>
@@ -26,49 +27,64 @@
   </nav>
 </header>
 
-
+<!-- ===== DASHBOARD ===== -->
 <section class="dashboard">
 
+  <!-- TOP BAR -->
   <div class="top-bar">
     <h1>Portfolio Dashboard</h1>
     <select id="yearSelect"></select>
   </div>
 
-  <!-- TOP SUMMARY -->
+  <!-- ===== SUMMARY ===== -->
   <div class="summary">
+
     <div class="summary-card">
       <h3>This Month</h3>
       <p id="monthPL">₹0</p>
-      <canvas id="monthPie"></canvas>
+      <div class="chart-wrapper">
+        <canvas id="monthPie"></canvas>
+      </div>
     </div>
 
     <div class="summary-card">
       <h3>This Year</h3>
       <p id="yearPL">₹0</p>
-      <canvas id="yearPie"></canvas>
+      <div class="chart-wrapper">
+        <canvas id="yearPie"></canvas>
+      </div>
     </div>
 
     <div class="summary-card">
       <h3>All Time</h3>
       <p id="allPL">₹0</p>
-      <canvas id="allPie"></canvas>
+      <div class="chart-wrapper">
+        <canvas id="allPie"></canvas>
+      </div>
     </div>
+
   </div>
 
-  <!-- CHARTS -->
+  <!-- ===== CHARTS ===== -->
   <div class="charts">
+
     <div class="panel">
       <h3>Account Balance</h3>
-      <canvas id="equityChart"></canvas>
+      <div class="chart-wrapper">
+        <canvas id="equityChart"></canvas>
+      </div>
     </div>
 
     <div class="panel">
       <h3>Reward / Risk</h3>
-      <canvas id="rrChart"></canvas>
+      <div class="chart-wrapper">
+        <canvas id="rrChart"></canvas>
+      </div>
     </div>
+
   </div>
 
-  <!-- MONTHLY TABLE -->
+  <!-- ===== TABLE ===== -->
   <div class="panel">
     <h3>Monthly Performance</h3>
     <table>
@@ -88,5 +104,3 @@
 <script src="js/portfolio.js"></script>
 </body>
 </html>
-
-
