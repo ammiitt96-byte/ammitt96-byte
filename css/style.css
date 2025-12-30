@@ -10,10 +10,10 @@
 body {
   background:
     linear-gradient(135deg,
-      rgba(120,0,0,0.6),
-      rgba(0,0,0,0.85),
-      rgba(0,120,60,0.6)),
-    url("../assets/bg-stock.jpg") no-repeat center center / cover;
+      rgba(120,0,0,0.4),
+      rgba(0,0,0,0.9),
+      rgba(0,120,60,0.4)),
+    url("../assets/bg-stock.jpg") no-repeat center / cover;
   color: #fff;
   min-height: 100vh;
 }
@@ -24,22 +24,20 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 99999;
   display: flex;
   align-items: center;
   padding: 15px 40px;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   border-bottom: 1px solid #222;
 }
 
-/* Logo */
 .logo-img {
-  width: 60px;
+  width: 55px;
   height: auto;
   margin-right: 12px;
 }
 
-/* Brand Name */
 .brand-name {
   font-size: 22px;
   font-weight: bold;
@@ -56,7 +54,6 @@ body {
   text-shadow: 0 0 6px rgba(255, 215, 0, 0.35);
 }
 
-/* Navigation */
 .header nav a {
   margin-left: 22px;
   text-decoration: none;
@@ -69,242 +66,9 @@ body {
   color: #4caf50;
 }
 
-/* ================= HERO ================= */
-.hero {
-  margin-top: 90px;
-  text-align: center;
-  padding: 100px 20px 70px;
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 18px;
-  color: #ddd;
-}
-
-/* ================= SECTION ================= */
-.section {
-  margin-top: 90px;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-/* ================= OVERVIEW ================= */
-.overview {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 60px 20px;
-  flex-wrap: wrap;
-}
-
-/* ================= CARDS (GENERAL) ================= */
-.card {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px;
-  width: 280px;
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(0,0,0,0.7);
-  overflow: hidden;
-  color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-}
-
-.card * {
-  position: relative;
-  z-index: 2;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 35px rgba(0,255,150,0.35);
-}
-
-/* Card Backgrounds */
-.card.edu { background-image: url("../assets/card-edu.jpg"); }
-.card.strat { background-image: url("../assets/card-strategy.jpg"); }
-.card.port { background-image: url("../assets/card-portfolio.jpg"); }
-
-.card h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #4caf50;
-}
-
-.card p {
-  font-size: 15px;
-  color: #ddd;
-  margin-bottom: 20px;
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #2e7d32, #4caf50);
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.btn:hover {
-  background: linear-gradient(135deg, #4caf50, #2e7d32);
-}
-
-/* ================= ABOUT ================= */
-.about-us-section {
-  background-color: #000;
-  padding: 80px 10%;
-}
-
-.about-container {
+/* ================= GLOBAL UTIL ================= */
+.container {
   max-width: 1200px;
   margin: auto;
+  padding: 120px 30px 30px;
 }
-
-.about-title {
-  font-size: 42px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.about-intro {
-  text-align: center;
-  font-size: 18px;
-  color: #ccc;
-  max-width: 800px;
-  margin: 0 auto 60px;
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-}
-
-.about-box {
-  background: #111;
-  padding: 30px;
-  border-radius: 12px;
-  transition: 0.3s;
-}
-
-.about-box h2 {
-  color: #f5c542;
-  margin-bottom: 15px;
-}
-
-.about-box p {
-  color: #bbb;
-  line-height: 1.6;
-}
-
-.about-box:hover {
-  background: #151515;
-  transform: translateY(-6px);
-}
-
-/* ================= FOOTER ================= */
-footer {
-  background: rgba(0,0,0,0.9);
-  border-top: 1px solid #222;
-  text-align: center;
-  padding: 40px 20px 20px;
-  color: #bbb;
-}
-
-/* ================================================= */
-/* =============== PORTFOLIO PAGE ONLY ============= */
-/* ================================================= */
-
-.cards {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin: 30px 0;
-  flex-wrap: wrap;
-}
-
-.section .card {
-  width: 240px;
-  padding: 25px 15px;
-  background: rgba(0,0,0,0.75);
-  border: 1px solid #b8860b;
-}
-
-.section .card::before {
-  background: rgba(0,0,0,0.55);
-}
-
-#monthSelect {
-  padding: 10px 15px;
-  background: #111;
-  color: #fff;
-  border: 1px solid #444;
-  border-radius: 6px;
-  margin-left: 10px;
-}
-
-#plChart {
-  max-width: 900px;
-  margin: 0 auto;
-  background: rgba(0,0,0,0.6);
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.analysis-box {
-  max-width: 900px;
-  margin: 15px auto;
-  background: rgba(0,0,0,0.7);
-  padding: 18px;
-  border-left: 4px solid #4caf50;
-  color: #ddd;
-  text-align: left;
-}
-
-.trade-images {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.trade-images img {
-  width: 160px;
-  margin: 10px;
-  border: 1px solid #b8860b;
-  border-radius: 6px;
-  transition: transform 0.3s ease;
-}
-
-.trade-images img:hover {
-  transform: scale(1.05);
-}
-
-.top-bar select {
-  background:#161b22;
-  color:#fff;
-  border:none;
-  padding:8px 12px;
-  border-radius:6px;
-  position: relative; /* relative pahije */
-  z-index: 10000; /* header cha var yel ase */
-}
-
-
