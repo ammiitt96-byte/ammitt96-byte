@@ -1,5 +1,5 @@
 const SHEET_URL =
-"https://docs.google.com/spreadsheets/d/1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA/gviz/tq?tqx=out:json";
+"https://docs.google.com/spreadsheets/d/1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA/gviz/tq?tqx=out:json&nocache=" + Date.now();
 
 let chart;
 let allData = [];
@@ -116,3 +116,4 @@ function drawChart(rows) {
     options:{plugins:{legend:{display:false}}}
   });
 }
+
