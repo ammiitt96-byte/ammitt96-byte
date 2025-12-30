@@ -15,7 +15,7 @@ fetch(SHEET_URL)
     used: r.c[4]?.v || 0,
     strategy: r.c[5]?.v || "",
     image: r.c[7]?.v || "",
-    roi: r.c[8]?.v || ""
+    roi: Number(r.c[8]?.v) || 0
   }));
 
 initMonths(rows);
@@ -87,6 +87,7 @@ function analysis(pl, roi) {
     ? `Profitable month with ${roi}% ROI using disciplined strategies.`
     : `Loss month. Risk optimization required.`;
 }
+
 
 
 
