@@ -47,4 +47,32 @@ function drawDashboard(data) {
   document.getElementById("withdrawCard").innerHTML =
     `Withdrawals<br><b>₹50,000</b>`;
   document.getElementById("balanceCard").innerHTML =
-    `End Balance<br><b>₹${capital + to
+    `End Balance<br><b>₹${capital + totalPL}</b>`;
+
+  drawEquity(data);
+}
+
+/* -------- CHART ---------- */
+function drawEquity(data) {
+  let cum = 0;
+  const equity = data.map(d => cum += d.pl);
+
+  new Chart(
+    document.getElementById("equityChart"),
+    {
+      type: "line",
+      data: {
+        labels: data.map(d => d.date),
+        datasets: [{
+          label: "Equity Curve",
+          data: equity,
+          borderColor: "#00ff99",
+          tension: 0.4
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } }
+      }
+    }
+  );
+}
