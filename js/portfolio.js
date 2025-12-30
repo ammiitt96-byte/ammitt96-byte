@@ -1,120 +1,120 @@
 const SHEET_URL =
-"https://docs.google.com/spreadsheets/d/1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA/gviz/tq?sheet=Sheet1&tqx=out:json&nocache=" + Date.now();
+"https://docs.google.com/spreadsheets/d/1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA/gviz/tq?sheet=Sheet1&tqx=out:json";
 
-let chart;
 let allData = [];
+let equityChart, rrChart;
 
 fetch(SHEET_URL)
   .then(res => res.text())
   .then(text => {
     const json = JSON.parse(text.substring(47).slice(0, -2));
 
-    allData = json.table.rows
-      .filter(r => r.c && r.c[0])
-      .map(r => {
-        const d = parseDate(r.c[0].v);
-        return {
-          year: d.getFullYear(),
-          month: d.toLocaleString("en-IN",{month:"short"}),
-          date: d,
-          pl: Number(r.c[3]?.v) || 0,
-          roi: Number(r.c[8]?.v) || 0
-        };
-      });
+    allData = json.table.rows.map(r => {
+      const d = new Date(r.c[0].v);
+      return {
+        date: d,
+        year: d.getFullYear(),
+        month: d.toLocaleString("en",{month:"short"}),
+        pl: Number(r.c[3]?.v) || 0,
+        roi: Number(r.c[8]?.v) || 0
+      };
+    });
 
     initYears();
+    renderAll();
   });
 
-function parseDate(d) {
-  const p = d.match(/\d+/g);
-  return new Date(p[0], p[1], p[2]);
-}
-
-/* -------- YEAR SELECT ---------- */
-function initYears() {
-  const years = [...new Set(allData.map(d => d.year))];
+function initYears(){
+  const years = [...new Set(allData.map(d=>d.year))].sort((a,b)=>b-a);
   const select = document.getElementById("yearSelect");
-
-  years.forEach(y => {
+  years.forEach(y=>{
     const o = document.createElement("option");
-    o.value = y;
-    o.textContent = y;
+    o.value = y; o.textContent = y;
     select.appendChild(o);
   });
-
-  select.onchange = () => renderYear(+select.value);
-  renderYear(years[0]);
 }
 
-/* -------- RENDER YEAR ---------- */
-function renderYear(year) {
-  const data = allData.filter(d => d.year === year);
-
-  const months = {};
-  data.forEach(d => {
-    if (!months[d.month]) months[d.month] = {pl:0, roi:[]};
-    months[d.month].pl += d.pl;
-    months[d.month].roi.push(d.roi);
-  });
-
-  const rows = Object.entries(months).map(([m,v]) => ({
-    month:m,
-    pl:v.pl,
-    roi:(v.roi.reduce((a,b)=>a+b,0)/v.roi.length).toFixed(2)
-  }));
-
-  updateSummary(rows);
-  drawTable(rows);
-  drawChart(rows);
+function renderAll(){
+  renderSummary();
+  drawEquity();
+  drawRR();
+  drawTable();
 }
 
-/* -------- SUMMARY ---------- */
-function updateSummary(rows) {
-  const total = rows.reduce((a,b)=>a+b.pl,0);
-  const avgR = (rows.reduce((a,b)=>a+Number(b.roi),0)/rows.length).toFixed(2);
+/* SUMMARY */
+function renderSummary(){
+  const now = new Date();
+  const monthData = allData.filter(d=>d.date.getMonth()===now.getMonth() && d.year===now.getFullYear());
+  const yearData = allData.filter(d=>d.year===now.getFullYear());
 
-  document.getElementById("totalPL").textContent = "₹"+total;
-  document.getElementById("avgROI").textContent = avgR+"%";
-
-  const sorted = [...rows].sort((a,b)=>b.pl-a.pl);
-  document.getElementById("bestMonth").textContent = sorted[0].month;
-  document.getElementById("worstMonth").textContent = sorted.at(-1).month;
+  setSummary("month", monthData);
+  setSummary("year", yearData);
+  setSummary("all", allData);
 }
 
-/* -------- TABLE ---------- */
-function drawTable(rows) {
-  const tb = document.getElementById("monthTable");
-  tb.innerHTML = "";
+function setSummary(type, data){
+  const total = data.reduce((a,b)=>a+b.pl,0);
+  document.getElementById(type+"PL").textContent = "₹"+total.toFixed(0);
 
-  rows.forEach(r => {
-    tb.innerHTML += `
-      <tr>
-        <td>${r.month}</td>
-        <td class="${r.pl>=0?"profit":"loss"}">₹${r.pl}</td>
-        <td>${r.roi}%</td>
-      </tr>`;
+  new Chart(document.getElementById(type+"Pie"),{
+    type:"doughnut",
+    data:{
+      datasets:[{
+        data:[Math.abs(total), 100],
+        backgroundColor:["#4caf50","#222"],
+        borderWidth:0
+      }]
+    },
+    options:{cutout:"75%", plugins:{legend:{display:false}}}
   });
 }
 
-/* -------- CHART ---------- */
-function drawChart(rows) {
-  if (chart) chart.destroy();
-
+/* EQUITY */
+function drawEquity(){
   let cum = 0;
-  const equity = rows.map(r => cum += r.pl);
+  const eq = allData.map(d=>cum+=d.pl);
 
-  chart = new Chart(document.getElementById("equityChart"), {
+  equityChart = new Chart(document.getElementById("equityChart"),{
     type:"line",
     data:{
-      labels:rows.map(r=>r.month),
+      labels:allData.map(d=>d.month),
       datasets:[{
-        data:equity,
+        data:eq,
         borderColor:"#3ea6ff",
-        tension:0.4
+        tension:0.4,
+        fill:true,
+        backgroundColor:"rgba(62,166,255,0.1)"
       }]
     },
     options:{plugins:{legend:{display:false}}}
   });
 }
 
+/* RR */
+function drawRR(){
+  rrChart = new Chart(document.getElementById("rrChart"),{
+    type:"bar",
+    data:{
+      labels:allData.map(d=>d.month),
+      datasets:[{
+        data:allData.map(d=>Math.abs(d.pl)),
+        backgroundColor:"#2f7ef7"
+      }]
+    },
+    options:{plugins:{legend:{display:false}}}
+  });
+}
 
+/* TABLE */
+function drawTable(){
+  const tb = document.getElementById("monthTable");
+  tb.innerHTML="";
+  allData.forEach(d=>{
+    tb.innerHTML+=`
+      <tr>
+        <td>${d.month}</td>
+        <td class="${d.pl>=0?"profit":"loss"}">₹${d.pl}</td>
+        <td>${d.roi}%</td>
+      </tr>`;
+  });
+}
