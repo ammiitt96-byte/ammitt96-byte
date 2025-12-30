@@ -1,5 +1,5 @@
 const SHEET_URL =
-"https://docs.google.com/spreadsheets/d/1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA/tq?tqx=out:json";
+"https://docs.google.com/spreadsheets/d/1jpR2_9X8QAPErcKe80hnmeI6ztw1ctzh4wE6cQ0njLA/gviz/tq?tqx=out:json";
 
 fetch(SHEET_URL)
 .then(res => res.text())
@@ -87,5 +87,6 @@ function analysis(pl, roi) {
     ? `Profitable month with ${roi}% ROI using disciplined strategies.`
     : `Loss month. Risk optimization required.`;
 }
+
 
 
